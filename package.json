@@ -11,6 +11,7 @@
     "test": "NODE_ENV=test mocha 'src/**/*.spec.js'"
   },
   "dependencies": {
+    "commander": "^2.9.0",
     "del": "^2.2.2",
     "dotenv": "^4.0.0",
     "joi": "^10.2.0",
