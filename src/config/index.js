@@ -9,9 +9,8 @@
 require('dotenv').config();
 
 const common = require('./components/common');
-const logger = require('./components/logger');
 const imageProcessor = require('./components/image-processor');
 
-module.exports = Object.assign({}, common, logger, imageProcessor);
+module.exports = Object.assign({}, common, imageProcessor);
 
 
