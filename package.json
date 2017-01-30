@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "CMSC 265 - Exercise 1",
   "main": "src/index.js",
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ecsnavarretemit/cmsc265-image-transition.git"
+  },
   "author": "Exequiel Ceasar Navarrete <esnavarrete1@up.edu.ph>",
   "license": "MIT",
   "scripts": {
