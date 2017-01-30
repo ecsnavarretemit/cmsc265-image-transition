@@ -24,7 +24,9 @@ fetchAll(resolvedPath)
     return Promise.all(promises);
   })
   .then(cvImages => validateDimensions(cvImages))
-  .then(cvImages => createSequence(cvImages, config.imageProcessor.sequencePrefix, config.common.out))
+  .then((cvImages) => {
+    return createSequence(cvImages, config.imageProcessor.sequencePrefix, config.common.out);
+  })
   .catch(err => console.error(err))
   ;
 
