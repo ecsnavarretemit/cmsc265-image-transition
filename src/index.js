@@ -11,24 +11,9 @@ const cv = require('opencv');
 const del = require('del');
 const config = require('./config');
 const fetchAll = require('./image-processor/fetch-all');
+const reader = require('./image-processor/reader');
 
 const resolvedPath = path.join(config.common.src, 'assets/img');
-
-const readImage = (imgPath) => {
-  const cvImageReaderPromise = new Promise((resolve, reject) => {
-    // read the image ung opencv
-    cv.readImage(imgPath, (err, img) => {
-      if (err) {
-        reject(err);
-      }
-
-      // resolve the promise by passing the cv image instance
-      resolve(img);
-    });
-  });
-
-  return cvImageReaderPromise;
-};
 
 const validateImages = (cvImages) => {
   const imageValidationPromise = new Promise((resolve, reject) => {
@@ -67,7 +52,7 @@ const validateImages = (cvImages) => {
 fetchAll(resolvedPath)
   .then((images) => {
     // create an array of image promises
-    const promises = images.map(imagePath => readImage(imagePath));
+    const promises = images.map(imagePath => reader(imagePath));
 
     // process all the promises using the all method of Promise object
     return Promise.all(promises);
