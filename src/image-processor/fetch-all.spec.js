@@ -11,7 +11,7 @@ const fetchAll = require('./fetch-all');
 const config = require('../config');
 
 describe('Fetch Images', () => {
-  const resolvedPath = path.join(config.common.src, 'assets/img-test');
+  const resolvedPath = path.join(config.common.src, 'assets/img-test/same');
   const nonExistentPath = path.join(config.common.src, 'non-existent-path');
 
   it('should throw an error', (done) => {

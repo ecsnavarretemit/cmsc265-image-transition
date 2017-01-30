@@ -12,7 +12,7 @@ const reader = require('./reader');
 const config = require('../config');
 
 describe('Image Reader', () => {
-  const imagePath = path.join(config.common.src, 'assets/img-test/img-1.JPG');
+  const imagePath = path.join(config.common.src, 'assets/img-test/same/img-1.JPG');
   const nonExistentImagePath = path.join(config.common.src, 'assets/img-test/non-existent.JPG');
 
   it('should throw an error', (done) => {
