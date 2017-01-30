@@ -1,0 +1,27 @@
+{
+  "name": "cmsc265-image-transition",
+  "version": "1.0.0",
+  "description": "CMSC 265 - Exercise 1",
+  "main": "index.js",
+  "repository": {},
+  "author": "Exequiel Ceasar Navarrete <esnavarrete1@up.edu.ph>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "NODE_ENV=test mocha 'src/**/*.spec.js'"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "joi": "^10.2.0",
+    "opencv": "^6.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "del": "^2.2.2",
+    "eslint": "3.13.0",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-mocha": "^4.8.0",
+    "mocha": "^3.2.0"
+  }
+}
