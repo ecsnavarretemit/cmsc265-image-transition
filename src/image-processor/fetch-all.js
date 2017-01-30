@@ -26,6 +26,11 @@ const fetchAll = (directory) => {
         .map(item => `${directory}/${item}`) // resolve the full path of the image
         ;
 
+      // reject the promise if the directory does not contain any images.
+      if (processed.length === 0) {
+        reject(new Error('Directory does not contain any images.'));
+      }
+
       // resolve the promise with the processed images being passed
       resolve(processed);
     });
