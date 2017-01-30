@@ -62,7 +62,7 @@ fetchAll(resolvedPath)
   .then((cvImages) => {
     return createSequence(cvImages, imagePrefix, outputDirectory);
   })
-  .catch(err => console.error(err))
+  .catch(err => console.log(err.message))
   ;
 
 
