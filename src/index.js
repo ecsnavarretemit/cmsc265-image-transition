@@ -24,7 +24,7 @@ const getImages = (directory) => {
       const processed = files
         .filter(item => !(/(^|\/)\.[^\/\.]/g).test(item)) // remove unnecessary files (e.g. dot files)
         .filter(item => (path.extname(item).toLowerCase() === '.jpg')) // include only jpg files
-        .map(item => `${resolvedPath}/${item}`) // resolve the full path of the image
+        .map(item => `${directory}/${item}`) // resolve the full path of the image
         ;
 
       // resolve the promise with the processed images being passed
