@@ -29,7 +29,7 @@ const validateDimensions = (cvImages) => {
 
     // reject with an error indicating what's wrong
     if (!shouldBeSameDimensions) {
-      reject(new Error('Input images should be the same dimensions'));
+      reject(new Error('Input images should be the same dimensions.'));
     }
 
     // return the cvimages
