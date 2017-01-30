@@ -20,7 +20,7 @@ const validateDimensions = (cvImages) => {
       }
 
       if (oldHeight === null) {
-        oldHeight = cvImage.height();
+        oldHeight = imageHeight;
       }
 
       // all images should be the same as the first width and height detected
