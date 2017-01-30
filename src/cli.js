@@ -17,12 +17,14 @@ const createSequence = require('./image-processor/create-sequence');
 
 let inputDirectory;
 let outputDirectory = config.common.out;
+let imagePrefix = config.imageProcessor.sequencePrefix;
 
 // assemble the program
 program
   .version('1.0.0')
   .arguments('<dir>')
   .option('-O, --output-dir <path>', 'output directory')
+  .option('-P, --image-prefix <path>', 'generated image prefix')
   .action((dir) => {
     inputDirectory = dir;
   })
@@ -40,6 +42,11 @@ if (typeof program.outputDir !== 'undefined') {
   outputDirectory = path.resolve(process.cwd(), program.outputDir);
 }
 
+// if sequencePrefix is provided, use it instead of the default one.
+if (typeof program.imagePrefix !== 'undefined') {
+  imagePrefix = program.imagePrefix;
+}
+
 const resolvedPath = path.resolve(process.cwd(), inputDirectory);
 
 // start the promise execution.
@@ -53,7 +60,7 @@ fetchAll(resolvedPath)
   })
   .then(cvImages => validateDimensions(cvImages))
   .then((cvImages) => {
-    return createSequence(cvImages, config.imageProcessor.sequencePrefix, outputDirectory);
+    return createSequence(cvImages, imagePrefix, outputDirectory);
   })
   .catch(err => console.error(err))
   ;
