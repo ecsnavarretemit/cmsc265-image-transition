@@ -10,6 +10,10 @@ const path = require('path');
 
 const fetchAll = (directory) => {
   const findImagesPromise = new Promise((resolve, reject) => {
+    if (!fs.existsSync(directory)) {
+      reject(new Error('Directory does not exist.'));
+    }
+
     // read the directory and its contents
     fs.readdir(directory, (err, files) => {
       if (err) {
