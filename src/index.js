@@ -8,6 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 const cv = require('opencv');
+const del = require('del');
 const config = require('./config');
 
 const resolvedPath = path.join(config.common.src, 'assets/img');
@@ -98,10 +99,18 @@ getImages(resolvedPath)
     const numImagesPerExec = 2;
     const numIterations = 10;
 
-    // create the output folder if it does not exist
-    if (!fs.existsSync(config.common.out)) {
-      fs.mkdirSync(config.common.out);
+    // delete the existing putput directory
+    if (fs.existsSync(config.common.out)) {
+      console.log(`Deleting old output directory: ${config.common.out}`);
+
+      del.sync([config.common.out]);
     }
+
+    // show the path in the console
+    console.log(`Creating output directory: ${config.common.out}`);
+
+    // create output directory
+    fs.mkdirSync(config.common.out);
 
     let imageCtr = 0;
     for (let i = 0; i < numExec; i += 1) {
@@ -120,6 +129,9 @@ getImages(resolvedPath)
         k += 1;
       }
     }
+
+    // show the message to the console
+    console.log('Finished processing images.');
   })
   .catch(err => console.error(err))
   ;
