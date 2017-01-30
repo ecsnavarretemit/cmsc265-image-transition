@@ -9,6 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const cv = require('opencv');
 const del = require('del');
+const template = require('lodash.template');
 const config = require('./config');
 const fetchAll = require('./image-processor/fetch-all');
 const reader = require('./image-processor/reader');
@@ -16,10 +17,12 @@ const validateDimensions = require('./image-processor/validate-dimensions');
 
 const resolvedPath = path.join(config.common.src, 'assets/img');
 
-const createSequence = (cvImages, outputDir) => {
+const createSequence = (cvImages, filenamePrefix, outputDir) => {
   const numExec = cvImages.length - 1;
   const numImagesPerExec = 2;
   const numIterations = 10;
+  const templateStr = '<%= prefix %>-<%= sequenceNumber %>.jpg';
+  const templateFn = template(templateStr);
 
   // delete the existing putput directory
   if (fs.existsSync(outputDir)) {
@@ -45,7 +48,10 @@ const createSequence = (cvImages, outputDir) => {
 
       const result = new cv.Matrix(imgSet[0].width(), imgSet[0].height());
       result.addWeighted(imgSet[0], fadein1, imgSet[1], fadein2, 0);
-      result.save(path.join(outputDir, `morph-${imageCtr}.jpg`));
+      result.save(path.join(outputDir, templateFn({
+        prefix: filenamePrefix,
+        sequenceNumber: (imageCtr + 1),
+      })));
 
       imageCtr += 1;
       k += 1;
@@ -66,7 +72,7 @@ fetchAll(resolvedPath)
     return Promise.all(promises);
   })
   .then(cvImages => validateDimensions(cvImages))
-  .then(cvImages => createSequence(cvImages, config.common.out))
+  .then(cvImages => createSequence(cvImages, 'seq', config.common.out))
   .catch(err => console.error(err))
   ;
 
