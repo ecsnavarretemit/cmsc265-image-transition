@@ -24,6 +24,7 @@ before_install:
  - sudo apt-get update
 
 script:
+ - npm rebuild opencv
  - yarn test
 
 notifications:
