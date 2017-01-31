@@ -44,7 +44,8 @@ UPGRADE.md
 typings
 
 # Assets
-src/assets
+src/assets/*
+!src/assets/img-test
 
 # Env
 .dir-env
