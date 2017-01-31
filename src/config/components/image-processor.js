@@ -1,19 +1,16 @@
 /*!
- * Config - Common
+ * Config - Image Processor
  *
  * Copyright(c) Exequiel Ceasar Navarrete <esnavarrete1@up.edu.ph>
  * Licensed under MIT
  */
 
-const path = require('path');
 const joi = require('joi');
 
 const envVarsSchema = joi
   .object({
-    OUT_DIR: joi.string()
-      .default(path.join(process.cwd(), 'out')),
-    SRC_DIR: joi.string()
-      .default(path.join(process.cwd(), 'src')),
+    SEQUENCE_PREFIX: joi.string()
+      .default('seq'),
   })
   .unknown()
   .required()
@@ -26,9 +23,8 @@ if (error) {
 }
 
 const config = {
-  common: {
-    out: envVars.OUT_DIR,
-    src: envVars.SRC_DIR,
+  imageProcessor: {
+    sequencePrefix: envVars.SEQUENCE_PREFIX,
   },
 };
 

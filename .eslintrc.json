@@ -6,7 +6,8 @@
   ],
   "rules": {
     "no-console": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "arrow-body-style": "off"
   },
   "env": {
     "mocha": true
