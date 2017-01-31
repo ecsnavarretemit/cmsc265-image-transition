@@ -11,7 +11,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
-    "test": "NODE_ENV=test mocha 'src/**/*.spec.js'"
+    "test": "NODE_ENV=test mocha 'src/**/*.spec.js'",
+    "create-video": "convert -delay 10 -quality 100 out/*.jpg out/sequence.mpeg"
   },
   "bin": {
     "image-sequencer": "./src/cli.js"
