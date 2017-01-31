@@ -1,5 +1,7 @@
 # CMSC 265 Exercise 1 - Smooth transition from one image to another
 
+[![Build Status](https://travis-ci.com/ecsnavarretemit/cmsc265-image-transition.svg?token=Epvjpqbou3YzbgbyBk2h&branch=master)](https://travis-ci.com/ecsnavarretemit/cmsc265-image-transition)
+
 ## Installing dependencies
 
 This project requires a working installation of [OpenCV 3](http://opencv.org/). Please install this first before installing
@@ -23,5 +25,9 @@ You may now be able to use the command `image-sequencer <directory containing im
 
 This program includes unit tests written using Mocha test framework and Chai assertion library.
 Unit tests can be run using `yarn test` if you use Yarn or `npm test` if you use NPM.
+
+## License
+
+MIT
 
 
