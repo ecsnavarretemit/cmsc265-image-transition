@@ -9,6 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const cv = require('opencv');
 const del = require('del');
+const padStart = require('lodash.padstart');
 const template = require('lodash.template');
 
 const createSequence = (cvImages, filenamePrefix, outputDir) => {
@@ -44,7 +45,7 @@ const createSequence = (cvImages, filenamePrefix, outputDir) => {
       result.addWeighted(imgSet[0], fadein1, imgSet[1], fadein2, 0);
       result.save(path.join(outputDir, templateFn({
         prefix: filenamePrefix,
-        sequenceNumber: (imageCtr + 1),
+        sequenceNumber: padStart((imageCtr + 1), 3, '0'),
       })));
 
       imageCtr += 1;

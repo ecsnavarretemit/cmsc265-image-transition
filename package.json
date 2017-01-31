@@ -21,6 +21,7 @@
     "del": "^2.2.2",
     "dotenv": "^4.0.0",
     "joi": "^10.2.0",
+    "lodash.padstart": "^4.6.1",
     "lodash.template": "^4.4.0",
     "opencv": "^6.0.0"
   },
