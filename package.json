@@ -1,6 +1,6 @@
 {
   "name": "cmsc265-image-transition",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CMSC 265 - Exercise 1",
   "main": "src/index.js",
   "repository": {
