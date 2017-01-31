@@ -1,6 +1,6 @@
 {
   "name": "cmsc265-image-transition",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CMSC 265 - Exercise 1",
   "main": "src/index.js",
   "repository": {
@@ -11,7 +11,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
-    "test": "NODE_ENV=test mocha 'src/**/*.spec.js'"
+    "test": "NODE_ENV=test mocha 'src/**/*.spec.js'",
+    "create-video": "convert -delay 10 -quality 100 out/*.jpg out/sequence.mpeg"
   },
   "bin": {
     "image-sequencer": "./src/cli.js"
@@ -21,6 +22,7 @@
     "del": "^2.2.2",
     "dotenv": "^4.0.0",
     "joi": "^10.2.0",
+    "lodash.padstart": "^4.6.1",
     "lodash.template": "^4.4.0",
     "opencv": "^6.0.0"
   },
